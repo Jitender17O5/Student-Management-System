@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 20px;
+        font-family: sans-serif;
+        background-color: rgba(128, 128, 128, 0.317);
+      }
+
+      .cont {
+        width: 1200px;
+        position: relative;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 100px auto;
+      }
+
+      .header {
+        background-color: rgba(0, 34, 255, 0.655);
+        height: 40px;
+        border-top-left-radius: 5px;
+        color: white;
+        border-top-right-radius: 5px;
+      }
+
+      .header h3{
+        padding: 10px;
+      }
+
+      .addStu {
+        float: right;
+        color: white;
+        margin: 5px;
+        background-color: rgba(0, 34, 255, 0.855);
+        height: 30px;
+        border: 2px solid rgba(0, 34, 255, 0.855);
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .insert {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .data {
+        margin-top: 150px;
+        background: white;
+        width: 700px;
+        display: inline-block;
+        height: 380px;
+        /* border: 2px solid greenyellow; */
+        border-radius: 8px;
+      }
+
+      .data h3 {
+        margin: 0;
+        color: white;
+        background-color:  rgba(0, 34, 255, 0.927);
+        padding: 10px;
+      }
+
+      .data h3 button {
+        float: right;
+        border: none;
+        /* background-color: none; */
+        background-color:  rgba(0, 34, 255, 0.655);
+        color: white;
+        cursor: pointer;
+      }
+
+      .stu {
+        background-color: white;
+        box-shadow: 5px 5px 10px gray;
+        border: 2px solid rgba(220, 220, 220, 0.568);
+        padding: 10px;
+      }
+
+  table {
+  border-collapse: collapse;
+  }
+      table td{
+      padding: 10px;
+      }
+      #tr {
+        background-color: black;
+        height: 40px;
+        color: white;
+      }
+     
+       table{
+        width: 100%;
+       }
+
+      .dis {
+        display: none;
+      }
+      .form {
+        padding: 20px;
+      }
+      .cs_btn {
+        /* float: right; */
+        width: 100px;
+        height: 40px;
+        padding: 5px;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-left: 420px;
+
+      }
+      .cancel {
+        border: 2px solid gainsboro;
+        background-color: rgba(114, 108, 108, 0.885);
+        color: white;
+      }
+      .save {
+        border: 2px solid green;
+        background-color: green;
+        margin-left: 10px;
+        color: white;
+      }
+      input {
+        height: 30px;
+        border-radius: 7px;
+        border: 2px solid gainsboro;
+        background-color: rgba(170, 201, 242, 0.482);
+      }
+      
+      .p{
+        cursor: pointer;
+      }
+      #del_Heading{
+        padding: 10px;
+        margin-top: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        margin-bottom: 0;
+        background-color: red;
+        color: White;
+      }
+      .delInfo{
+        padding: 10px;
+      }
+      .delName{
+        padding:5px;
+        border-radius: 10px;
+        height: 50px;
+        background-color: rgba(255, 166, 0, 0.235);
+      }
+      .delName p span{
+        font-weight: 700;
+      }
+      .delDisplay{
+        width: 400px;
+      }
+      .Cancel{
+        width: 80px;
+        color: white;
+        padding: 5px;
+        margin-left: 310px;
+        border-radius: 5px;
+        border: 2px solid grey;
+        background-color: rgba(128, 128, 128, 0.493);
+      }
+      .yes_delete{
+        width: 80px;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid red;
+        background-color: red;
+      }
+      #can{
+        border: none;
+        float: right;
+        font-size: 20px;
+        background-color: red;
+      }
+      /* //bydefault hidden div */
+      .del{
+        visibility: hidden; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .delDisplay{
+        margin-top: 150px;
+        background: white;
+        width: 500px;
+        display: inline-block;
+        height: 270px;
+        border-radius: 8px;
+      }
+      /* showing delte div after click on delete button  */
+     
+
+        .Editdata {
+        margin-top: 150px;
+        background: white;
+        width: 690px;
+        display: inline-block;
+               height: 390px;
+
+        border-radius: 8px;
+      }
+
+      .Editdata h3 {
+        margin: 0;
+        color: white;
+        background-color:  rgba(0, 34, 255, 0.855);
+        padding: 10px;
+      }
+
+      .Editdata h3 button {
+        float: right;
+        border: none;
+        background-color:  rgba(0, 34, 255, 0.855);
+        color: white;
+        cursor: pointer;
+      }
+      .inputColor{
+        background-color: white;
+      }
+      .Edit{
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="cont">
+
+      <div class="header">
+      <button class="addStu" onclick="addstudent()">+Add Student</button>
+        <h3>Student Lists  </h3>
+      </div>
+
+      <div class="stu">
+        <table border="2" class="tab">
+          <tr id="tr">
+            <td>S.NO</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Mobile</td>
+            <td>Pincode</td>
+            <td>Action</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Displaying div after clicking on Add student -->
+    <div class="insert dis" id="box">
+      <div class="data">
+        <h3>
+          Add student
+          <button onclick="closePopup()"  style="font-size: 20px;">X</button>
+        </h3>
+        <div class="form">
+          <form>
+            <label for="name">Name</label>
+            <label for="Email" style="margin-left: 380px">Email</label>
+            <br /><input  type="text" id="name" style="width: 320px" />
+            <input 
+              type="text"
+              id="email"
+              style="margin-left: 5px; width: 290px"
+            />
+            <br /><br />
+            <label for="city">City</label>
+            <label for="state" style="margin-left: 150px">State</label>
+            <label for="pin" style="margin-left: 140px">Pincode</label><br>
+
+            <input  type="text" style="width: 160px" id="city" />
+            <input 
+              type="text"
+              id="state"
+              style="width: 170px; margin-left: 10px"
+            />
+            <input 
+              type="text"
+              id="pin"
+              style="width: 250px; margin-left: 5px"
+            />
+            <br /><br />
+            <label for="mob">Mobile</label>
+            <br/><input  type="text" id="mob" style="width: 95%" />
+           
+            <br /><br />
+
+            <hr />
+            <button type="button" class="cs_btn cancel" onclick="closePopup()">Cancel</button>
+            <button type="button" class="cs_btn save" onclick="save()">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Displaying div after clicking on Delete Button -->
+     <div class="del">
+      <div class="delDisplay">
+        <h3 id="del_Heading">Confirm Delete
+          <button id="can" onclick="closePopup()"style="font-size: 20px;">X</button>
+        </h3><br>
+        <div class="delInfo">
+          <p style="margin-top: 0;">Are you sure you want to delete this student?</p>
+          <div class="delName">
+            <p style="color: brown;" ><span id="person_name" style="font-size: 20px;color: brown;font-weight: 500px;"></span>Will be permanently removed.</p>
+          </div>
+          <br>
+            <hr />
+            <button  class=" Cancel " onclick="closePopup()" >Cancel</button>
+           <button class="yes_delete" onclick="deleteStudent()">Yes Delete</button>
+        </div>
+      </div>
+     </div>
+    <!-- Displaying div after clicking on Edit Button -->
+    <div class="Edit" id="Edit">
+       <div class="Editdata">
+        <h3>
+          Edit Student
+          <button onclick="closePopup()" style="font-size: 20px;">X</button>
+        </h3>
+        <div class="form">
+          <form>
+            <label for="name">Name</label>
+            <label for="Email" style="margin-left: 380px">Email</label>
+            <br /><input class="inputColor" type="text" id="edit_name" style="width: 320px" />
+            <input class="inputColor"
+              type="text"
+              id="edit_email"
+              style="margin-left: 5px; width: 290px"
+            />
+            <br /><br />
+            <label for="city">City</label>
+            <label for="state" style="margin-left: 150px">State</label>
+            <label for="pin" style="margin-left: 140px">Pincode</label><br>
+
+            <input class="inputColor" type="text" style="width: 160px" id="edit_city" />
+            <input class="inputColor"
+              type="text"
+              id="edit_state"
+              style="width: 170px; margin-left: 10px"
+            />
+            <input class="inputColor"
+              type="text"
+              id="edit_pin"
+              style="width: 250px; margin-left: 5px"
+            />
+            <br /><br />
+            <label for="mob">Mobile</label>
+            <br /><input class="inputColor" type="text" id="edit_mob" style="width: 95%" />
+           
+            <br /><br />
+
+            <hr />
+            <button  style="margin-left: 430px;" class="cs_btn cancel" onclick="closePopup()">Cancel</button>
+            <button type="button" class="cs_btn save" onclick="saveEdit()">Save</button>
+          </form>
+        </div>
+    </div>
+ <!-- Writting JavaScipt Scripting -->
+
+   
+
+
+<script>
+// Global variables
+let Name;
+let count = 1;
+let deleteRow;
+let editRow;
+
+// Load students when page loads
+window.onload = function () {
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
+  students.forEach(stu => {
+    createRow(stu);
+  });
+};
+
+// Open Add Student popup
+function addstudent() {
+  document.getElementById("box").classList.toggle("dis");
+}
+
+// Close popups
+function closePopup() {
+  document.getElementById("box").classList.add("dis");
+  document.querySelector(".del").style.visibility = "hidden";
+  document.getElementById("Edit").style.visibility = "hidden";
+}
+
+// Save student
+function save() {
+
+  Name = document.getElementById("name").value;
+  let Email = document.getElementById("email").value;
+  let City = document.getElementById("city").value;
+  let State = document.getElementById("state").value;
+  let PinCode = document.getElementById("pin").value;
+  let Mobile = document.getElementById("mob").value;
+
+  if (Name == "" || Email == "") {
+    alert("Please fill required fields");
+    return;
+  }
+
+  let studentData = {
+    name: Name,
+    email: Email,
+    city: City,
+    state: State,
+    pincode: PinCode,
+    mobile: Mobile
+  };
+
+  // Save to localStorage
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+  students.push(studentData);
+  localStorage.setItem("students", JSON.stringify(students));
+
+  createRow(studentData);
+
+  document.querySelector("#box form").reset();
+  document.getElementById("box").classList.add("dis");
+}
+
+// Create table row
+function createRow(student) {
+
+  let tr = document.createElement("tr");
+
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+  let td4 = document.createElement("td");
+  let td5 = document.createElement("td");
+  let td6 = document.createElement("td");
+  let td7 = document.createElement("td");
+  let td8 = document.createElement("td");
+
+  td1.textContent = count++;
+  td2.textContent = student.name;
+  td3.textContent = student.email;
+  td4.textContent = student.city;
+  td5.textContent = student.state;
+  td6.textContent = student.mobile;
+  td7.textContent = student.pincode;
+
+  // Edit Button
+  let edit_btn = document.createElement("button");
+  edit_btn.textContent = "Edit";
+  edit_btn.style.width = "50px";
+  edit_btn.style.height = "30px";
+  edit_btn.style.backgroundColor = "blue";
+  edit_btn.style.color = "white";
+  edit_btn.style.borderRadius = "7px";
+
+  // Delete Button
+  let del_btn = document.createElement("button");
+  del_btn.textContent = "Delete";
+  del_btn.style.width = "60px";
+  del_btn.style.height = "30px";
+  del_btn.style.backgroundColor = "red";
+  del_btn.style.color = "white";
+  del_btn.style.marginLeft = "5px";
+  del_btn.style.borderRadius = "7px";
+
+  td8.append(edit_btn, del_btn);
+
+  tr.append(td1, td2, td3, td4, td5, td6, td7, td8);
+
+  document.querySelector(".tab").appendChild(tr);
+
+  // Delete click
+  del_btn.onclick = () => {
+    deleteRow = tr;
+    document.querySelector(".del").style.visibility = "visible";
+    document.getElementById("person_name").textContent =
+      td2.textContent + " ";
+  };
+
+  // Edit click
+  edit_btn.onclick = () => {
+    editRow = tr;
+
+    document.getElementById("Edit").style.visibility = "visible";
+
+    document.getElementById("edit_name").value = tr.children[1].textContent;
+    document.getElementById("edit_email").value = tr.children[2].textContent;
+    document.getElementById("edit_city").value = tr.children[3].textContent;
+    document.getElementById("edit_state").value = tr.children[4].textContent;
+    document.getElementById("edit_mob").value = tr.children[5].textContent;
+    document.getElementById("edit_pin").value = tr.children[6].textContent;
+  };
+}
+
+// Delete student
+function deleteStudent() {
+
+  if (deleteRow) {
+
+    let index = deleteRow.children[0].textContent - 1;
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    students.splice(index, 1);
+
+    localStorage.setItem("students", JSON.stringify(students));
+
+    deleteRow.remove();
+  }
+
+  updateSerial();
+
+  document.querySelector(".del").style.visibility = "hidden";
+}
+
+// Update serial numbers
+function updateSerial() {
+
+  let rows = document.querySelectorAll(".tab tr");
+
+  for (let i = 1; i < rows.length; i++) {
+    rows[i].children[0].textContent = i;
+  }
+
+  count = rows.length;
+}
+
+// Save edited student
+function saveEdit() {
+
+  let en = document.getElementById("edit_name").value;
+  let ee = document.getElementById("edit_email").value;
+  let ec = document.getElementById("edit_city").value;
+  let es = document.getElementById("edit_state").value;
+  let ep = document.getElementById("edit_pin").value;
+  let em = document.getElementById("edit_mob").value;
+
+  let index = editRow.children[0].textContent - 1;
+
+  let students = JSON.parse(localStorage.getItem("students")) || [];
+
+  students[index] = {
+    name: en,
+    email: ee,
+    city: ec,
+    state: es,
+    pincode: ep,
+    mobile: em
+  };
+
+  localStorage.setItem("students", JSON.stringify(students));
+
+  editRow.children[1].textContent = en;
+  editRow.children[2].textContent = ee;
+  editRow.children[3].textContent = ec;
+  editRow.children[4].textContent = es;
+  editRow.children[5].textContent = em;
+  editRow.children[6].textContent = ep;
+
+  document.getElementById("Edit").style.visibility = "hidden";
+}
+</script>
+  </body> 
+</html>
